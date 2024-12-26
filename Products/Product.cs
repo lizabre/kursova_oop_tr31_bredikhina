@@ -17,14 +17,14 @@ namespace Kursova.Products
         private static int productID = 1;
         private int id;
         private string name;
-        private string desciption;
+        private string description;
         protected double initPrice;
         protected double price;
         private int quantity;
         private Company company;
         public int Id { get { return id; } }
         public string Name { get { return name; } }
-        public string Description { get { return desciption; } }
+        public string Description { get { return description; } }
         public double Price { get { return price; } }
         public int Quantity { get { return quantity; } }
         public Company Company { get { return company; } }
@@ -32,7 +32,7 @@ namespace Kursova.Products
         {
             id = productID++;
             name = _name;
-            desciption = _description;
+            description = _description;
             initPrice = _price;
             quantity = _quantity;
             company = _company;
@@ -40,7 +40,7 @@ namespace Kursova.Products
         }
         public virtual void CountFinalPrice()
         {
-            price = initPrice * (1 - Company.Tax);
+            price = initPrice * (1 + Company.Tax);
         }
         public void BeingBought(int q) {
             if (q <= 0)

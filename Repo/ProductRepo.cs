@@ -24,7 +24,7 @@ namespace Kursova.Repo
 
         public Product Get(int id)
         {
-            return bContext.Products[id];
+            return bContext.Products.Find((pr)=>pr.Id == id);
         }
 
 
